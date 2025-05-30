@@ -1,5 +1,9 @@
-import nest_asyncio
-nest_asyncio.apply()
+try:
+    import nest_asyncio
+    nest_asyncio.apply()
+except ImportError:
+    import logging
+    logging.warning("nest_asyncio module not found. Async features may not work properly.")
 
 # Import necessary libraries for UI, HTTP requests, environment variables, and regex
 import streamlit as st
