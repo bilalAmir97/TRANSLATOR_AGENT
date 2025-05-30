@@ -124,13 +124,21 @@ if translate_button:
                 prompt = input_text
 
             # Run the translation agent synchronously
-            response = Runner.run_sync(
-                translator,
-                input=prompt,
-                run_config=config
-            )
-            # Remove any HTML tags from the output for clean display
-            clean_output = re.sub(r'<[^>]+>', '', response.final_output)
+            import logging
+            logging.basicConfig(level=logging.DEBUG)
+            logging.debug("Starting translation agent run_sync call")
+            try:
+                response = Runner.run_sync(
+                    translator,
+                    input=prompt,
+                    run_config=config
+                )
+                logging.debug("Translation agent run_sync call completed")
+                # Remove any HTML tags from the output for clean display
+                clean_output = re.sub(r'<[^>]+>', '', response.final_output)
+            except Exception as e:
+                logging.error(f"Error during translation: {e}")
+                st.error(f"Error during translation: {e}")
 
             # Display the translated output with styled markdown
             st.markdown("### Translated Output:")
