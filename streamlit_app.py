@@ -7,7 +7,12 @@ except ImportError:
 
 # Import necessary libraries for UI, HTTP requests, environment variables, and regex
 import streamlit as st
-from streamlit_lottie import st_lottie
+try:
+    from streamlit_lottie import st_lottie
+except ImportError:
+    import logging
+    logging.warning("streamlit_lottie module not found. Lottie animations will be disabled.")
+    st_lottie = None
 import requests
 from agents import Agent, Runner, AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig
 import os
