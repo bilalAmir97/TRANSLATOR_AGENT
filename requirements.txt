@@ -4,3 +4,4 @@ python-dotenv
 requests
 streamlit-lottie
 openai
+openai-agents
