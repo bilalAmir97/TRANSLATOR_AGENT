@@ -67,7 +67,8 @@ st.markdown("<h3 style='text-align: center; color: #306998;'>Translate text into
 st.markdown("<p style='text-align: center; font-size: 14px; color: gray; margin-bottom: 20px;'>Built by Muhammad Bilal Amir</p>", unsafe_allow_html=True)
 
 # Render the Lottie animation in the UI
-st_lottie(lottie_3d_animation, speed=1, height=200, key="3d_animation")
+if st_lottie is not None and lottie_3d_animation is not None:
+    st_lottie(lottie_3d_animation, speed=1, height=200, key="3d_animation")
 
 # Define the Translator Agent with instructions
 translator = Agent(
@@ -148,6 +149,7 @@ if translate_button:
             except Exception as e:
                 logging.error(f"Error during translation: {e}")
                 st.error(f"Error during translation: {e}")
+                clean_output = "Error occurred during translation."
 
             # Display the translated output with styled markdown
             st.markdown("### Translated Output:")
