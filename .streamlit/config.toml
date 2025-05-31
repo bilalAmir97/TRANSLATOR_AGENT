@@ -2,4 +2,4 @@
 headless = true
 
 [build]
-postBuild = "bash setup.sh"
+# postBuild = "bash setup.sh"
