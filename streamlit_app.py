@@ -68,7 +68,11 @@ st.markdown("<p style='text-align: center; font-size: 14px; color: gray; margin-
 
 # Render the Lottie animation in the UI
 if st_lottie is not None and lottie_3d_animation is not None:
-    st_lottie(lottie_3d_animation, speed=1, height=200, key="3d_animation")
+    try:
+        st_lottie(lottie_3d_animation, speed=1, height=200, key="3d_animation")
+    except Exception as e:
+        import logging
+        logging.warning(f"Failed to render Lottie animation: {e}")
 
 # Define the Translator Agent with instructions
 translator = Agent(
