@@ -67,12 +67,12 @@ st.markdown("<h3 style='text-align: center; color: #306998;'>Translate text into
 st.markdown("<p style='text-align: center; font-size: 14px; color: gray; margin-bottom: 20px;'>Built by Muhammad Bilal Amir</p>", unsafe_allow_html=True)
 
 # Render the Lottie animation in the UI
-if st_lottie is not None and lottie_3d_animation is not None:
-    try:
-        st_lottie(lottie_3d_animation, speed=1, height=200, key="3d_animation")
-    except Exception as e:
-        import logging
-        logging.warning(f"Failed to render Lottie animation: {e}")
+#if st_lottie is not None and lottie_3d_animation is not None:
+#    try:
+#        st_lottie(lottie_3d_animation, speed=1, height=200, key="3d_animation")
+#    except Exception as e:
+#        import logging
+#        logging.warning(f"Failed to render Lottie animation: {e}")
 
 # Define the Translator Agent with instructions
 translator = Agent(
