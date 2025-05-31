@@ -129,11 +129,13 @@ if translate_button:
         with st.spinner("Translating..."):
             # Prepare prompt with target language if specified
             if target_language.strip():
-                # Fix: If target language is Roman Urdu, translate to Urdu instead
                 lang = target_language
                 if lang.lower() == "roman urdu":
-                    lang = "Urdu"
-                prompt = f"Translate the following text into {lang}:\n{input_text}"
+                    prompt = f"Translate the following text into Roman Urdu script:\n{input_text}"
+                elif lang.lower() == "urdu":
+                    prompt = f"Translate the following text into Urdu script:\n{input_text}"
+                else:
+                    prompt = f"Translate the following text into {lang}:\n{input_text}"
             else:
                 prompt = input_text
 
