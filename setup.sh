@@ -1,2 +1,2 @@
 #!/bin/bash
-pip install nest_asyncio
+pip install -r requirements.txt
